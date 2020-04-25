@@ -6,6 +6,7 @@
 <body onLoad="init();">
   <div id="okta-login-container"></div>
   <script type="text/javascript">
+  let auth = "false"
   var oktaSignIn = new OktaSignIn({
     baseUrl: 'https://dev-780600.okta.com',
     clientId: '0oaafthrzDLR5VRmL4x6',
@@ -33,6 +34,7 @@
 
         // Say hello to the person who just signed in:
         oktaSignIn.authClient.tokenManager.get('idToken').then(function (idToken) {
+	  auth = "true"
           console.log('Hello, ' + idToken.claims.email);
         });
       },
@@ -46,6 +48,7 @@
       // Session exists, show logged in state.
       if (res.status === 'ACTIVE') {
         console.log('Welcome back, ' + res.login);
+	auth = "true"
         return;
       }
       // No session, show the login form
@@ -62,11 +65,6 @@
       );
     });
   }
-</script>
-
-<script>
-	let auth = 'false';
-	if(document.cookie != ""){if(document.cookie.split("[%22openid%22%2C%22email%22]%2C%22clientId%22:%220oaafthrzDLR5VRmL4x6%22%2C%22urls%22:")[1].split(';')[0] == "{%22issuer%22:%22https://dev-780600.okta.com/oauth2/default%22%2C%22authorizeUrl%22:%22https://dev-780600.okta.com/oauth2/default/v1/authorize%22%2C%22userinfoUrl%22:%22https://dev-780600.okta.com/oauth2/default/v1/userinfo%22%2C%22tokenUrl%22:%22https://dev-780600.okta.com/oauth2/default/v1/token%22}%2C%22ignoreSignature%22:false}"){auth = "true"}} else {auth = "false"}
 </script>
 
 </body>
