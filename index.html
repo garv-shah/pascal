@@ -34,8 +34,10 @@
 
         // Say hello to the person who just signed in:
         oktaSignIn.authClient.tokenManager.get('idToken').then(function (idToken) {
-	  auth = "true"
-          console.log('Hello, ' + idToken.claims.email);
+          alert('Hello, ' + idToken.claims.email);
+          auth = "true"
+          document.getElementById('myCanvas').style.display = ""
+		  document.getElementById('block_container').style.display = ""
         });
       },
       function error(err) {
@@ -47,8 +49,10 @@
     oktaSignIn.authClient.session.get().then(function (res) {
       // Session exists, show logged in state.
       if (res.status === 'ACTIVE') {
-        console.log('Welcome back, ' + res.login);
-	auth = "true"
+        alert('Welcome back, ' + res.login);
+        auth = "true"
+        document.getElementById('myCanvas').style.display = ""
+		document.getElementById('block_container').style.display = ""
         return;
       }
       // No session, show the login form
@@ -351,10 +355,6 @@ function write(message, cor1, cor2) {
   context.fillText(message, cor1, cor2);
 };
   
-
-document.getElementById('myCanvas').style.display = "none"
-document.getElementById('block_container').style.display = "none"
-
 	
 </script>
 
@@ -364,4 +364,14 @@ document.getElementById('block_container').style.display = "none"
   <canvas id="Canvas2" width="1200" height="600" >
   </canvas>
 </body>
+
+<script>
+if(auth == "false"){
+	document.getElementById('myCanvas').style.display = "none"
+	document.getElementById('block_container').style.display = "none"
+} else {
+	document.getElementById('myCanvas').style.display = ""
+	document.getElementById('block_container').style.display = ""
+};
+</script>
 
