@@ -1,7 +1,9 @@
+<script>
 oktaSignIn.authClient.session.get().then(function (res) {
 	if(res.status != "ACTIVE") { window.location.replace("https://refusscrimingour.github.io/pascal/403/"); }
 } )
-
+</script>
+	
 <div id="block_container">
   <button class="btn pause" onClick="px = 0; py = 0;">Pause</button>
   <button class="btn resume" onClick="px = momentum; py = momentum;">Resume</button>
