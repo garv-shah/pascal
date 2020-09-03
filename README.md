@@ -1,3 +1,2 @@
 # pascal
-a simulation of pascal's triangle
-made by refus
+a simple simulation of pascal's triangle
