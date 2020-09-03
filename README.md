@@ -1,5 +1,5 @@
 # pascal
 a simple simulation of pascal's triangle  
-[a link](https://refusscrimingour.github.io/pascal/)  
+[visit site](https://refusscrimingour.github.io/pascal/)  
   
 By Garv, 2019
