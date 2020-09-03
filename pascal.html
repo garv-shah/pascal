@@ -294,28 +294,3 @@ function write(message, cor1, cor2) {
   <canvas id="Canvas2" width="1200" height="600" >
   </canvas>
 </body>
-
-<script>
-  document.getElementById('myCanvas').style.display = "none"
-  document.getElementById('block_container').style.display = "none"
-  var oktaSignIn = new OktaSignIn({
-    baseUrl: 'https://dev-780600.okta.com',
-    clientId: '0oaafthrzDLR5VRmL4x6',
-    authParams: {
-      issuer: 'https://dev-780600.okta.com/oauth2/default',
-      responseType: ['token', 'id_token'],
-      display: 'page'
-    }
-});
-  
-oktaSignIn.authClient.session.get().then(function (res) {
-  console.log(res.status);
-  if(res.status != "ACTIVE") { 
-    window.location.replace("https://refusscrimingour.github.io/pascal/403/");
-    } else { 
-      document.getElementById('myCanvas').style.display = ""; 
-      document.getElementById('block_container').style.display = "";
-    }
-} )
-
-</script>
